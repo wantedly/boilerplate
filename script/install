@@ -1,0 +1,93 @@
+#!/bin/bash
+
+set -e
+
+echo ""
+echo "  Set up application from wantedly/boilerplate"
+echo ""
+
+BASE_DIR=`pwd`
+
+#
+# Check for temporary boilerplate directory
+#
+if test -d /tmp/boilerplate
+then
+  rm -rf /tmp/boilerplate
+fi
+
+#
+# Clone boilerplate repository (with the latest commit only)
+#
+cd /tmp
+git clone --depth 1 https://github.com/wantedly/boilerplate
+cd boilerplate
+
+#
+# Check for coreos directory
+#
+if test -d $BASE_DIR/coreos
+then
+  echo "  o coreos/ already exists."
+else
+  echo "  + Preparing coreos/"
+  cp -r coreos $BASE_DIR/coreos
+fi
+
+#
+# Check for doc directory
+#
+if test -d $BASE_DIR/doc
+then
+  echo "  o doc/ already exists."
+else
+  echo "  + Preparing doc/"
+  cp -r doc $BASE_DIR/doc
+fi
+
+#
+# Check for script directory
+#
+if test -d $BASE_DIR/script
+then
+  echo "  o script/ already exists."
+else
+  echo "  + Preparing script/"
+  mkdir $BASE_DIR/script
+fi
+
+#
+# Check for script/bootstrap
+#
+if test -f $BASE_DIR/script/bootstrap
+then
+  echo "  o script/bootstrap already exists."
+else
+  echo "  + Preparing script/bootstrap"
+  cp -r script/bootstrap $BASE_DIR/script/bootstrap
+fi
+
+#
+# Check for .dockerignore
+#
+if test -f $BASE_DIR/.dockerignore
+then
+  echo "  o .dockerignore already exists."
+else
+  echo "  + Preparing .dockerignore"
+  cp -r .dockerignore $BASE_DIR/.dockerignore
+fi
+
+#
+# Check for .dockerfile
+#
+if test -f $BASE_DIR/Dockerfile
+then
+  echo "  o Dockerfile already exists."
+else
+  echo "  + Preparing Dockerfile"
+  cp -r .dockerignore $BASE_DIR/Dockerfile
+fi
+
+cd ../
+rm -rf boilerplate
