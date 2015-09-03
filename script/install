@@ -15,6 +15,10 @@ if test -d /tmp/boilerplate
 then
   rm -rf /tmp/boilerplate
 fi
+
+#
+# Clone boilerplate repository (with the latest commit only)
+#
 cd /tmp
 git clone --depth 1 https://github.com/wantedly/boilerplate
 cd boilerplate
