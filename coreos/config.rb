@@ -63,7 +63,7 @@ $new_discovery_url="https://discovery.etcd.io/new?size=#{$num_instances}"
 #$image_version = "current"
 
 # Official CoreOS channel from which updates should be downloaded
-#$update_channel='alpha'
+$update_channel='beta'
 
 # Log the serial consoles of CoreOS VMs to log/
 # Enable by setting value to true, disable with false
