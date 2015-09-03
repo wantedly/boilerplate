@@ -1,3 +1,11 @@
+require 'erb'
+require 'dotenv'
+
+# Create user-data from erb template
+Dotenv.load
+erb = File.open(File.join(File.dirname(__FILE__), "user-data.yml.erb")) { |f| ERB.new(f.read) }
+File.write(File.join(File.dirname(__FILE__), "user-data"), erb.result(binding))
+
 # Size of the CoreOS cluster created by Vagrant
 $num_instances=1
 
@@ -48,7 +56,7 @@ $new_discovery_url="https://discovery.etcd.io/new?size=#{$num_instances}"
 #$instance_name_prefix="core"
 
 # Change the version of CoreOS to be installed
-# To deploy a specific version, simply set $image_version accordingly. 
+# To deploy a specific version, simply set $image_version accordingly.
 # For example, to deploy version 709.0.0, set $image_version="709.0.0".
 # The default value is "current", which points to the current version
 # of the selected channel
