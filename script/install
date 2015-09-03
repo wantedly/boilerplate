@@ -53,7 +53,18 @@ then
   echo "  o script/ already exists."
 else
   echo "  + Preparing script/"
-  cp -r script $BASE_DIR/script
+  mkdir $BASE_DIR/script
+fi
+
+#
+# Check for script/bootstrap
+#
+if test -f $BASE_DIR/script/bootstrap
+then
+  echo "  o script/bootstrap already exists."
+else
+  echo "  + Preparing script/bootstrap"
+  cp -r script/bootstrap $BASE_DIR/script/bootstrap
 fi
 
 #
