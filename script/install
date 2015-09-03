@@ -86,7 +86,7 @@ then
   echo "  o Dockerfile already exists."
 else
   echo "  + Preparing Dockerfile"
-  cp -r .dockerignore $BASE_DIR/Dockerfile
+  cp -r Dockerfile $BASE_DIR/Dockerfile
 fi
 
 cd ../
