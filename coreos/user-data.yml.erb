@@ -57,6 +57,27 @@ coreos:
 
         [Install]
         WantedBy=sockets.target
+    # # Launch application as Docker container.
+    # - name: awesome.service
+    #   command: start
+    #   enable: true
+    #   content: |
+    #     [Unit]
+    #     Description=Awesome app
+    #     After=docker.service
+    #     Requires=docker.service
+
+    #     [Service]
+    #     TimeoutStartSec=0
+    #     User=core
+    #     ExecStartPre=-/usr/bin/docker kill awesome
+    #     ExecStartPre=-/usr/bin/docker rm awesome
+    #     ExecStartPre=/usr/bin/docker pull quay.io/wantedly/awesome:latest
+    #     ExecStart=/usr/bin/docker run --name awesome -p 8080:8080 -e FOO=bar quay.io/wantedly/awesome:dtan4
+    #     ExecStop=/usr/bin/docker stop awesome
+
+    #     [Install]
+    #     WantedBy=multi-user.target
 write_files:
   - path: /etc/ssh/sshd_config
     permissions: 0600
