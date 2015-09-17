@@ -81,7 +81,7 @@ coreos:
     #     WantedBy=multi-user.target
 write_files:
   - path: /etc/ssh/sshd_config
-    permissions: 0600
+    permissions: "0600"
     owner: root:root
     content: |
       # Use most defaults for sshd configuration.
