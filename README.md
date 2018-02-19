@@ -1,4 +1,8 @@
-# boilerplate
+See https://github.com/wantedly/k8s for creating a new app/service on k8s.
+
+---
+
+# [deprecated] boilerplate
 
 ## Installation
 
